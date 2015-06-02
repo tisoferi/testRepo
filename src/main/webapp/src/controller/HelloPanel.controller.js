@@ -15,6 +15,18 @@ sap.ui.define([
 
 			// show message
 			MessageToast.show(sMsg);
+		},
+
+		_getDialog : function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("sap.ui.walkthrough.view.HelloDialog");
+				this.getView().addDependent(this._oDialog);
+			}
+			return this._oDialog;
+		},
+
+		onOpenDialog : function () {
+			this._getDialog().open();
 		}
 	});
 });
