@@ -18,8 +18,11 @@ sap.ui.define([
 		},
 
 		_getDialog : function () {
+			// create dialog lazily
 			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("sap.ui.walkthrough.view.HelloDialog");
+				// create dialog via fragment factory
+				this._oDialog = sap.ui.xmlfragment("sap.ui.walkthrough.view.HelloDialog", this);
+				// connect dialog to view (models, lifecycle)
 				this.getView().addDependent(this._oDialog);
 			}
 			return this._oDialog;
@@ -27,6 +30,10 @@ sap.ui.define([
 
 		onOpenDialog : function () {
 			this._getDialog().open();
+		},
+
+		onCloseDialog : function () {
+			this._getDialog().close();
 		}
 	});
 });
