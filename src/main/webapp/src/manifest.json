@@ -34,7 +34,8 @@
          }
       },
       "config": {
-		  "invoiceLocal": "/Invoices.json"
+		  "invoiceLocal": "/Invoices.json",
+		  "invoiceRemote": "../../proxy/http/services.odata.org/V2/Northwind/Northwind.svc/"
       },
       "models": {
      	 "i18n": {
@@ -43,6 +44,6 @@
      			"bundleName": "sap.ui.walkthrough.i18n.i18n"
      			}
      		}
-     	 }
-      }
+       }
+    }
 }
