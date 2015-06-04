@@ -36,7 +36,6 @@ sap.ui.define([
 					}
 				}
 			}
-
 		},
 
 		init : function () {
