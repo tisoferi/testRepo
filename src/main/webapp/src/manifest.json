@@ -4,22 +4,22 @@
       "_version":"1.1.0",
       "id":"sap.ui.walkthrough",
       "type":"application",
-      "i18n": "i18n/i18n.properties",
-      "title": "{{appTitle}}",
-      "description": "{{appDescription}}",
+      "i18n":"i18n/i18n.properties",
+      "title":"{{appTitle}}",
+      "description":"{{appDescription}}",
       "applicationVersion":{
          "version":"1.0.0"
       },
       "ach":"CA-UI5-DOC",
-      "dataSources": {
-      	 "invoiceRemote": {
-			"uri": "/testDataPath/",
-			"type": "OData",
-			"settings": {
-				"odataVersion": "2.0"
-			}
-		 }
-	  }
+      "dataSources":{
+         "invoiceRemote":{
+            "uri":"/testDataPath/",
+            "type":"OData",
+            "settings":{
+               "odataVersion":"2.0"
+            }
+         }
+      }
    },
    "sap.ui":{
       "_version":"1.1.0",
@@ -29,7 +29,7 @@
          "tablet":true,
          "phone":true
       },
-      "supportedThemes": [
+      "supportedThemes":[
          "sap_bluecrystal"
       ]
    },
@@ -39,19 +39,50 @@
       "dependencies":{
          "minUI5Version":"1.30",
          "libs":{
-            "sap.m":{ }
+            "sap.m":{
+
+            }
          }
       },
-      "models": {
-     	 "i18n": {
-     		"type": "sap.ui.model.resource.ResourceModel",
-     		"settings": {
-     			"bundleName": "sap.ui.walkthrough.i18n.i18n"
-     		}
-     	 },
-	     "invoice" : {
-			  "dataSource": "invoiceRemote"
-		 }
+      "models":{
+         "i18n":{
+            "type":"sap.ui.model.resource.ResourceModel",
+            "settings":{
+               "bundleName":"sap.ui.walkthrough.i18n.i18n"
+            }
+         },
+         "invoice":{
+            "dataSource":"invoiceRemote"
+         }
+      },
+      "routing":{
+         "config":{
+            "routerClass":"sap.m.routing.Router",
+            "viewType":"XML",
+            "viewPath":"sap.ui.walkthrough.view",
+            "controlId":"app",
+            "controlAggregation":"pages"
+         },
+         "routes":[
+            {
+               "pattern":"",
+               "name":"overview",
+               "target":"overview"
+            },
+            {
+               "pattern":"detail",
+               "name":"detail",
+               "target":"detail"
+            }
+         ],
+         "targets":{
+            "overview":{
+               "viewName":"Overview"
+            },
+            "detail":{
+               "viewName":"Detail"
+            }
+         }
       }
    }
 }
